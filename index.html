@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <title>MyTube</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="MyTube"><span class="brand-mark">▶</span> MyTube</a>
+    <form id="search-form" class="search">
+      <input id="search-input" type="search" placeholder="ابحث عن فيديو..." autocomplete="off">
+      <button type="submit">بحث</button>
+    </form>
+    <button id="settings-open" class="icon-btn" title="الإعدادات">⚙</button>
+  </header>
+
+  <aside class="sidebar">
+    <button class="nav-item active" data-view="home">⌂ <span>الرئيسية</span></button>
+    <button class="nav-item" data-view="subscriptions">▣ <span>اشتراكاتي</span></button>
+    <button class="nav-item" data-view="history">◷ <span>سجل المشاهدة</span></button>
+    <button class="nav-item" data-view="favorites">♡ <span>المفضلة</span></button>
+    <div class="side-note">نسخة أولية تجريبية</div>
+  </aside>
+
+  <main class="content">
+    <section id="notice" class="notice" hidden></section>
+    <section class="welcome" id="welcome">
+      <p class="eyebrow">مساحتك لمشاهدة الفيديوهات</p>
+      <h1>أهلاً بك في <span>MyTube</span></h1>
+      <p>ابحث عن فيديو وابدأ المشاهدة. بياناتك المحفوظة تبقى على هذا الجهاز.</p>
+      <form id="hero-search" class="hero-search">
+        <input id="hero-input" type="search" placeholder="شنو تحب تشاهد؟">
+        <button type="submit">ابدأ البحث</button>
+      </form>
+    </section>
+    <div class="section-heading">
+      <h2 id="view-title">اقتراحات وبحث</h2>
+      <span id="result-count"></span>
+    </div>
+    <div id="video-grid" class="video-grid"></div>
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">◉</div>
+      <h3>ماكو فيديوهات لحد الآن</h3>
+      <p>استخدم البحث حتى تظهر النتائج هنا.</p>
+    </div>
+  </main>
+
+  <dialog id="player-dialog" class="player-dialog">
+    <div class="dialog-head">
+      <h2 id="player-title">مشغل MyTube</h2>
+      <button class="icon-btn" id="player-close" aria-label="إغلاق">✕</button>
+    </div>
+    <video id="video-player" controls playsinline></video>
+    <div class="player-meta">
+      <p id="player-channel"></p>
+      <button id="favorite-toggle" class="secondary-btn">♡ إضافة للمفضلة</button>
+      <button id="subscribe-toggle" class="secondary-btn">＋ اشتراك بالقناة</button>
+    </div>
+    <p class="small-muted">قد لا تعمل بعض الروابط أو الجودات بسبب قيود المصدر أو المتصفح.</p>
+  </dialog>
+
+  <dialog id="settings-dialog" class="settings-dialog">
+    <div class="dialog-head">
+      <h2>إعدادات MyTube</h2>
+      <button class="icon-btn" id="settings-close" aria-label="إغلاق">✕</button>
+    </div>
+    <label for="api-base">عنوان Piped API</label>
+    <input id="api-base" type="url" placeholder="https://اسم-المصدر">
+    <p class="small-muted">اكتب عنوان مصدر Piped متوافق بدون / في النهاية. استخدم مصدراً تثق به؛ المصادر العامة قد تتوقف أو تسجل الطلبات.</p>
+    <div class="settings-actions">
+      <button id="save-settings">حفظ الإعدادات</button>
+      <button id="export-data" class="secondary-btn">تصدير بياناتي</button>
+      <label class="secondary-btn import-label">استيراد نسخة<input id="import-data" type="file" accept="application/json"></label>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
